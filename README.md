@@ -32,13 +32,6 @@ For the trades that used Wrapped KLAY,
 the price are converted to USD with the market price of KLAY at utc-time 00:00 on the day that NFT trade happened
 
 
-Statistics of NFT's market volume is in file:
-/home/yinan/result/opensea/nft_trade/statistics/collection_volume.csv
-
-Statistics of NFT trades in each collection is in file:
-/home/yinan/result/opensea/nft_trade/statistics/trade_cnt.csv
-
-
 
 Name            |Type           |Description
 ----------------|---------------|---------------
@@ -141,3 +134,10 @@ KKKT           |43             |0.01                   |0x8cb4a41bb76b3ba687fbb1
 (KKKT: Klay Kingdoms Knight Token)
 
 
+## statistics analysis
+    
+Statistics of NFT's market volume is in file:
+/home/yinan/result/opensea/nft_trade/statistics/collection_volume.csv
+
+Statistics of NFT trades in each collection is in file:
+/home/yinan/result/opensea/nft_trade/statistics/trade_cnt.csv
