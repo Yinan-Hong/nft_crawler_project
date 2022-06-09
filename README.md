@@ -33,10 +33,10 @@ the price are converted to USD with the market price of KLAY at utc-time 00:00 o
 
 
 Statistics of NFT's market volume is in file:
-/home/yinan/result/opensea/statistics/collection_volume.csv
+/home/yinan/result/opensea/nft_trade/statistics/collection_volume.csv
 
 Statistics of NFT trades in each collection is in file:
-/home/yinan/result/opensea/statistics/trade_cnt.csv
+/home/yinan/result/opensea/nft_trade/statistics/trade_cnt.csv
 
 
 
