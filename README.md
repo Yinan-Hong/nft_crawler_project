@@ -87,7 +87,7 @@ excluded trades     |584
 Usage of FTs in NFT trades are as follows.
 
 The most commonly used FT is **Wrapped KLAY**,
-which is the ERC-20 protocol encapsulation of Klaytn's original crypto.
+which is the encapsulation of Klaytn's original crypto klay with ERC-20 protocol.
 
 ft_name        |num of usage   |percentage of usage    |ft_contract
 ---------------|---------------|-----------------------|---------------------
