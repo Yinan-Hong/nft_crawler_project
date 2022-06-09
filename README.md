@@ -4,18 +4,17 @@
 |-- doc
 |   |opensea_klaytn项目文档
 |
-|-- former_version
-|   |previous data
+|-- statistics
+|   |元数据统计
+|
+|-- missing_ownership.csv
+|   |没获取到transaction的ownership transfer
 |
 |-- nft_trade.csv
-|   |NFT交易记录, (with_transfer includes NFT exchenges without payments)
-|
-|-- ft_cnt.csv
-|   |statiscs of FT usage in NFT trades
+|   |NFT交易记录(包含没有payments的transfer)
 |
 |-- README.md
 |   |本文档，建议使用markdown文档编辑器查看
-
 ```
 
 
@@ -27,6 +26,10 @@ Each line represents a NFT transfer.
 
 This sheet only includes NFT trades on Opensea platfrom,
 and the NFTs are on blockchain Klaytn.
+
+94.36% of trades used Wrapped KLAY as payment token.
+For the trades that used Wrapped KLAY,
+the price are converted to USD with the market price of KLAY at utc-time 00:00 on the day that NFT trade happened
 
 
 Name            |Type           |Description
@@ -45,11 +48,35 @@ ft_contract	    |string	        |Contract address (20-byte)
 tx_hash	        |string	        |TransactionHash in which this NFT transfer occurred (32-byte)
 
 
-## About multiple NFT trades in the same transaction
-
 When a NFT is transferred from A to B, if in the same transaction,
 there is a FT trade bewtween A and B, and the FT is transferred from B to A,
 we assume that the FT is the price of this NFT trade.
+
+```
+Let A and B be two wallet account.
+
+|transaction-1:
+    |NFT-1: A -> B
+    |NFT-2: B -> C
+    |FT-1: B -> A
+    |FT-2: C -> B
+
+Then, we have following trades:
+NFT-1 sold from A to B, the price is FT-1,
+NFT-2 sold from B to C, the price is FT-2.
+```
+
+In this sheet, there are 3,506,515 NFT transfers.
+517,278 of above transfers are trades (with FT payments).
+
+statistics  |count
+------------|---------
+NFT transfer|3,506,515
+Trade       |517,278
+Non trade   |2,989,237
+
+
+## About multiple NFT trades in the same transaction
 
 In some transactions, there are multiple NFT trades between two users A and B.
 In this case, we cannot match the payments with NFT transfers.
@@ -75,14 +102,19 @@ PER Project |0x7eee60a000986e9efe7f5c90340738558c24317b
 
 These trades are excluded in the first round of data cleaning.
 
+## missing ownership transfers
 
-## statistics summmary
+When querying the transactions of certain NFT ownership transfers,
+the api returns an empty list.
 
-statistics          |count
---------------------|---------
-Usable NFT transfer |3,506,515
-missed transaction  |329,126
-excluded trades     |584
+There are in total 329,126 NFT transfers encountered this situation.
+
+Excluding mint and destroy of NFTs (by judging if the sender or receiver is 0x0000000),
+the number of these transfer is 133,792.
+
+We cannot tell if these transfers are trades or non-trades.
+
+## Usage of FTs
 
 Usage of FTs in NFT trades are as follows.
 
@@ -99,6 +131,7 @@ GoldenPoo      |621            |0.12                   |0xb6b9deccfb72314ebfe9d0
 KKKT           |43             |0.01                   |0x8cb4a41bb76b3ba687fbb117ad867d8be1c4dba5
 
 (KKKT: Klay Kingdoms Knight Token)
+
 
 Statistics of NFT's market volume is in file:
 /home/yinan/result/opensea/statistics/collection_volume.csv
