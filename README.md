@@ -137,7 +137,9 @@ KKKT           |43             |0.01                   |0x8cb4a41bb76b3ba687fbb1
 ## statistics analysis
     
 Statistics of NFT's market volume is in file:
+    
 /home/yinan/result/opensea/nft_trade/statistics/collection_volume.csv
 
 Statistics of NFT trades in each collection is in file:
+    
 /home/yinan/result/opensea/nft_trade/statistics/trade_cnt.csv
