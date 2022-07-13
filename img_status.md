@@ -55,7 +55,7 @@ https://www.darkhorizon.io/api/tokens/1
 对于不规则的token uri，需要通过eth接口获取token元数据，得到token uri后才能爬取。
 
 使用`http`协议的project中有37个project的uri格式是不规则的；
-使用`ipfs`协议的project中有25个project的uri格式是不规则的。
+使用`ipfs`协议的project中有26个project的uri格式是不规则的。
 
 ``` 不规则的token uri
 https://api.gen.art/public/membership/standard
